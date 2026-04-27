@@ -68,7 +68,11 @@ def automatizar_descarga(cedula, id_ingreso):
         print(f"[+] Se filtraron {len(list_oids)} folios para el ingreso {id_ingreso} (de {len(data_f)} totales).")
 
         # Definir nombre de archivo y carpeta específica por paciente
-        folder_path = os.path.join("descargas", str(cedula))
+        base_dir = r"E:\HC"
+        if not os.path.exists(base_dir):
+            base_dir = "descargas"
+            
+        folder_path = os.path.join(base_dir, str(cedula))
         filename = f"{nombre_limpio}_{cedula}_{id_ingreso}.pdf"
         filepath = os.path.join(folder_path, filename)
         
