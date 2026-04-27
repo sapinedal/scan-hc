@@ -67,12 +67,17 @@ def automatizar_descarga(cedula, id_ingreso):
 
         print(f"[+] Se filtraron {len(list_oids)} folios para el ingreso {id_ingreso} (de {len(data_f)} totales).")
 
-        # Definir nombre de archivo antes para verificar si ya existe
+        # Definir nombre de archivo y carpeta específica por paciente
+        folder_path = os.path.join("descargas", str(cedula))
         filename = f"{nombre_limpio}_{cedula}_{id_ingreso}.pdf"
-        filepath = os.path.join("descargas", filename)
+        filepath = os.path.join(folder_path, filename)
         
+        # Crear la carpeta del paciente si no existe
+        if not os.path.exists(folder_path):
+            os.makedirs(folder_path)
+
         if os.path.exists(filepath):
-            print(f"[!] El archivo ya existe: {filename}. Saltando...")
+            print(f"[!] El archivo ya existe en {folder_path}. Saltando...")
             return
 
         # 3. Open Report (Obtener reportId)
@@ -147,12 +152,7 @@ def automatizar_descarga(cedula, id_ingreso):
 
         filename = f"{nombre_limpio}_{cedula}_{id_ingreso}.pdf"
         
-        # Crear carpeta de salida si no existe
-        if not os.path.exists("descargas"):
-            os.makedirs("descargas")
-            
-        filepath = os.path.join("descargas", filename)
-        
+        # El filepath ya fue definido y la carpeta creada al inicio de la función
         with open(filepath, "wb") as f:
             f.write(final_res.content)
         
