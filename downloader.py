@@ -5,9 +5,8 @@ import os
 import sys
 
 # --- CONFIGURACIÓN ---
-BASE_URL = "http://192.168.0.25:9700"
-TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjQwODUiLCJuYW1laWQiOiI0MDg1IiwiQ2VudHJvQXRlbmNpb24iOiIxIiwibmJmIjoxNzc3MzA2ODY2LCJleHAiOjE3NzczOTMyNjYsImlhdCI6MTc3NzMwNjg2Nn0.X85Jzbmz3suL0mBNRWGTkyyxktlB1IRC7AtuForZbBA"
-
+BASE_URL = "http://192.168.0.30:8887"
+TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjQwODUiLCJuYW1laWQiOiI0MDg1IiwiQ2VudHJvQXRlbmNpb24iOiIxIiwibmJmIjoxNzc3MzgwMDU5LCJleHAiOjE3Nzc0NjY0NTksImlhdCI6MTc3NzM4MDA1OX0.b_DjLofWCAm8iqexIwcCM87rfDcUxLn_QrWWeNDT9wY"
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
     "Authorization": f"Bearer {TOKEN}",
